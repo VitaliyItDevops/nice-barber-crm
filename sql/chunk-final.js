@@ -1,1 +1,0 @@
-(()=>{const eds=window.monaco.editor.getEditors();eds[0].setValue(window.__seed);return {ok:true,len:eds[0].getValue().length}})()
