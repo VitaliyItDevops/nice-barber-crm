@@ -34,5 +34,4 @@ Open http://localhost:3000 — you will be redirected to `/login`.
 
 ## Notes
 
-- Landing-page code from the previous marketing site is archived under `archive/landing/`.
 - Seed bookings are generated relative to **2026-09-26** so analytics patterns (incl. Friday evening no-shows) are reproducible.

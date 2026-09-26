@@ -15,39 +15,39 @@ const barberIds = [
   "a3333333-3333-3333-3333-333333333333",
   "a4444444-4444-4444-4444-444444444444",
 ];
-const barberNames = ["Marek", "Tomáš", "Jakub", "Peter"];
+const barberNames = ["Mark", "Thomas", "Jacob", "Peter"];
 
 const services = [
   { id: "b1111111-1111-1111-1111-111111111111", name: "MY. FADE", name_en: "Fade", price: 23, duration: 45 },
-  { id: "b2222222-2222-2222-2222-222222222222", name: "MY. KLASICKÝ STRIH", name_en: "Classic Haircut", price: 25, duration: 60 },
-  { id: "b3333333-3333-3333-3333-333333333333", name: "MY. ÚPRAVA BRADY", name_en: "Beard Trim", price: 18, duration: 30 },
-  { id: "b4444444-4444-4444-4444-444444444444", name: "MY. WELNESS STRIH", name_en: "Wellness Cut", price: 60, duration: 120 },
-  { id: "b5555555-5555-5555-5555-555555555555", name: "MY. FARBENIE BRADY", name_en: "Beard Coloring", price: 15, duration: 30 },
+  { id: "b2222222-2222-2222-2222-222222222222", name: "MY. CLASSIC HAIRCUT", name_en: "Classic Haircut", price: 25, duration: 60 },
+  { id: "b3333333-3333-3333-3333-333333333333", name: "MY. BEARD TRIM", name_en: "Beard Trim", price: 18, duration: 30 },
+  { id: "b4444444-4444-4444-4444-444444444444", name: "MY. WELLNESS CUT", name_en: "Wellness Cut", price: 60, duration: 120 },
+  { id: "b5555555-5555-5555-5555-555555555555", name: "MY. BEARD COLORING", name_en: "Beard Coloring", price: 15, duration: 30 },
   { id: "b6666666-6666-6666-6666-666666666666", name: "MY. COMBO", name_en: "Combo", price: 35, duration: 90 },
-  { id: "b7777777-7777-7777-7777-777777777777", name: "MY. DETSKÝ STRIH", name_en: "Kids Haircut", price: 20, duration: 60 },
+  { id: "b7777777-7777-7777-7777-777777777777", name: "MY. KIDS HAIRCUT", name_en: "Kids Haircut", price: 20, duration: 60 },
 ];
 
 const clients = [
-  ["Martin Horváth", "+421901234567"],
-  ["Peter Novák", "+421902345678"],
-  ["Ján Kováč", "+421903456789"],
-  ["Michal Varga", "+421904567890"],
-  ["Tomáš Tóth", "+421905678901"],
-  ["Lukáš Nagy", "+421906789012"],
-  ["Andrej Szabó", "+421907890123"],
-  ["Filip Baláž", "+421908901234"],
-  ["Matej Urban", "+421909012345"],
-  ["Patrik Molnár", "+421910123456"],
-  ["Dominik Lukáč", "+421911234567"],
-  ["Róbert Šimko", "+421912345678"],
-  ["Samuel Gajdoš", "+421913456789"],
-  ["Adam Polák", "+421914567890"],
-  ["Jakub Černý", "+421915678901"],
-  ["Peter Hruška", "+421916789012"],
-  ["Marek Bartoš", "+421917890123"],
-  ["Richard Kučera", "+421918901234"],
-  ["Daniel Oravec", "+421919012345"],
-  ["Vladimír Benko", "+421920123456"],
+  ["James Smith", "+421901234567"],
+  ["John Johnson", "+421902345678"],
+  ["Robert Williams", "+421903456789"],
+  ["Michael Brown", "+421904567890"],
+  ["William Jones", "+421905678901"],
+  ["David Miller", "+421906789012"],
+  ["Richard Davis", "+421907890123"],
+  ["Joseph Wilson", "+421908901234"],
+  ["Thomas Moore", "+421909012345"],
+  ["Charles Taylor", "+421910123456"],
+  ["Daniel Anderson", "+421911234567"],
+  ["Matthew Thomas", "+421912345678"],
+  ["Anthony Jackson", "+421913456789"],
+  ["Andrew White", "+421914567890"],
+  ["Joshua Harris", "+421915678901"],
+  ["Ryan Martin", "+421916789012"],
+  ["Kevin Thompson", "+421917890123"],
+  ["Brian Garcia", "+421918901234"],
+  ["George Clark", "+421919012345"],
+  ["Edward Lewis", "+421920123456"],
 ];
 
 const clientIds = clients.map((_, i) => {
@@ -315,6 +315,5 @@ sql += `insert into barber_time_off (id, barber_id, date, reason) values
   ('e0000000-0000-4000-8000-000000000002', '${barberIds[2]}', '${fmtDate(addDays(TODAY, 5))}', 'Training');\n`;
 
 const out = path.join(__dirname, "..", "sql", "seed.sql");
-// UTF-8 with BOM so Supabase SQL Editor / Windows tools keep Slovak diacritics
-fs.writeFileSync(out, "\uFEFF" + sql, { encoding: "utf8" });
-console.error("Wrote sql/seed.sql (UTF-8 BOM)");
+fs.writeFileSync(out, sql, { encoding: "utf8" });
+console.error("Wrote sql/seed.sql");
